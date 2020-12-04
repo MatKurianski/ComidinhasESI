@@ -19,8 +19,6 @@
         .row.justify-content-around.my-3
           .col-6.text-center
             =button_to  "EDITAR", edit_product_path(@product), {:id => "Editar", :class=> "btn btn-info", :type => "button", :method => :get}
-            -# %a{:class => ''}
-            -#   EDITAR
           .col-6.text-center
             =link_to 'REMOVER', @product, {:class => 'btn btn-danger', method: :delete}
 

@@ -1,6 +1,7 @@
 class UserController < ApplicationController
-    before_action :authorized, only: [:index, :payment_method] # verifica se o cara tá logado
-    before_action :authenticate, only: [:update]
+    before_action :authorized, only: [:index, :payment_method, :phone_number] # verifica se o cara tá logado
+    before_action :authenticate, only: [:update, :updatephone]
+   
 
     def show
         if @user = User.find_by(id:params[:id])
@@ -35,14 +36,18 @@ class UserController < ApplicationController
     def payment_method
         @user = User.find(session[:user_id])
     end
+    
+    def phone_number
+        @user = User.find(session[:user_id])
+    end
 
     def authenticate
         user = current_user
         if !user.authenticate(params[:user][:password])
             @error = "Senha incorreta"
-            render '/user/payment_method'
+            render request.path
         end
-    end
+    end    
 
     def update
         @user = User.find(session[:user_id])
@@ -56,6 +61,19 @@ class UserController < ApplicationController
         end  
     end
 
+    def updatephone
+        puts('NO PHONE ACTION')
+        @user = User.find(session[:user_id])
+        if @user.update(phone: params[:user][:phone])
+            redirect_to "/user/"
+        else 
+            @user.errors.each do |attribute, errorMsg|
+                puts(errorMsg)
+            end
+            redirect_to '/user/phone_number'
+        end  
+    end
+
     def index
         @products = Product.joins(:user).where("user_id = #{@user.id}")
     end
@@ -65,17 +83,19 @@ class UserController < ApplicationController
     end
     
     def create
+        
         @user = User.new(user_params)
+       
         if @user.save
-           redirect_to "/login/index"
+             redirect_to "/login/index"
         else
             render 'new'
         end
+       
     end
 
     private
         def user_params
-            params.require(:user).permit(:email, :username, :password, :avatar, :password_confirmation, :money, :card, :vr, :pix)
+            params.require(:user).permit(:email, :username, :password, :avatar, :password_confirmation, :money, :card, :vr, :pix, :phone)
         end   
 end
-

@@ -11,12 +11,16 @@
         %div.card-body
             %h3.card-title.text-center 
                 Número de celular
+            %p.text-center
+                Ele é opcional! 
+            %p.text-center
+                Caro queira removê-lo deixe o campo abaixo em branco e clique em "Alterar"
             %div.row
                 = form_for @user, url: {action: "updatephone"}, :method => 'put', html: { class: "col-sm"} do |f|                   
                     %div.form-group
                         %div.form-row
                             %div.custom-control.custom-switch.list-group-item.d-flex                               
-                                = f.text_field :phone, id: "phone", placeholder: (@user.phone != '' ? @user.phone : "(11) 94002-8922"), class: 'form-control'                                                     
+                                = f.text_field :phone, id: "phone", value: (@user.phone), class: 'form-control', placeholder: "Insira seu celular aqui"                                                  
                     %div.form-group
                         %div.form-row
                             %p Confirme sua senha &nbsp;

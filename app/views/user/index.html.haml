@@ -20,11 +20,6 @@
                 %a{class: "add-product list-group-item", id: "payment_method", href: "/user/payment_method"} Escolher métodos de pagamento
                 %a{class: "add-product list-group-item", id: "phone_number", href: "/user/phone_number"} Alterar/Inserir numero de celular
                 %a{class: "list-group-item", href: "#"} Localização
-    %h5.mb-4 Celular
-    .row.mx-2.justify-content-center
-        - if @user.phone != ''
-            .col-3.text-center                
-                %p=@user.phone
     %h5.mb-4 Métodos de Pagamento
     .row.mx-2.justify-content-center
         - if @user.card
@@ -43,6 +38,15 @@
             .col-3.text-center
                 %i.fas.fa-utensils
                 %p VR
+    %h5.my-4 Fale com o vendedor
+    .row.mx-2.justify-content-center.my-4
+        - if @user.phone != ''
+            %button.btn.btn-secondary.btn-call.w-100.p-2{:type => "button", :onclick => "location.href='https://api.whatsapp.com/send?phone=#{@user.phone}&text=Gostaria%20de%20comprar%20seu%20produto';"} 
+                %i.fa.fa-whatsapp
+                Enviar Mensagem
+        - else
+            %p.text-center
+                O vendedor não cadastrou um número de celular
 
     %h5 Produtos 
     = render partial = 'product-card'

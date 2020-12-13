@@ -2,6 +2,8 @@
 %link{:rel => "preconnect", :href => "https://fonts.gstatic.com"}
 %link{:href => "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap", :rel => "stylesheet"}
 
+%div
+    = link_to "<i class=\"fas fa-arrow-left\" style=\"font-size: 20px; margin: 15px 10px; margin-bottom: 5px\"></i>".html_safe, "", :class => "no-link mr-4 ml-2", :onclick => "history.back()"
 .container
     %div.row
         %div.col-sm

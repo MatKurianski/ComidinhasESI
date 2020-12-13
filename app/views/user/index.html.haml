@@ -39,7 +39,7 @@
     %h5.my-4 Fale com o vendedor
     .row.mx-2.justify-content-center.my-4
         - if @user.phone != ''
-            %button.btn.btn-secondary.btn-call.w-100.p-2{:type => "button", :onclick => "location.href='https://api.whatsapp.com/send?phone=#{@user.phone}&text=Gostaria%20de%20comprar%20seu%20produto';"} 
+            %button.btn.btn-secondary.btn-call.w-100.p-2{:type => "button", :onclick => "location.href='https://api.whatsapp.com/send?phone=+55#{@user.phone}&text=Gostaria%20de%20comprar%20seu%20produto';"} 
                 %i.fa.fa-whatsapp
                 Enviar Mensagem
         - else

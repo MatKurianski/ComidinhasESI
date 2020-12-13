@@ -65,7 +65,7 @@
   .row.align-items-end.justify-content-center.mt-3.mx-2
     .col-12
       - if @product.user.phone != ''
-        %button.btn.btn-secondary.btn-call.w-100.p-2{:type => "button", :onclick => "location.href='https://api.whatsapp.com/send?phone=#{@product.user.phone}&text=Gostaria%20de%20comprar%20seu%20produto';"} 
+        %button.btn.btn-secondary.btn-call.w-100.p-2{:type => "button", :onclick => "location.href='https://api.whatsapp.com/send?phone=+55#{@product.user.phone}&text=Gostaria%20de%20comprar%20seu%20produto';"} 
           %i.fa.fa-whatsapp
           Enviar Mensagem
       - else

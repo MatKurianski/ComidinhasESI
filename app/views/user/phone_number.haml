@@ -14,8 +14,8 @@
             %p.text-center
                 Caro queira removê-lo deixe o campo abaixo em branco e clique em "Alterar"
             %p.text-center
-                %span.font-weight-bold Importante! O formato é: +CodigoPaís + DDD + Numero
-                %p.text-center Exemplo: +55119123456789
+                %span.font-weight-bold Importante! O formato é: DDD + numero
+                %p.text-center Exemplo: 119123456789
             %div.row
                 = form_for @user, url: {action: "updatephone"}, :method => 'put', html: { class: "col-sm"} do |f|                   
                     %div.form-group

@@ -14,11 +14,9 @@
                     %img{:src =>url_for(current_user.avatar), :class => "img-user"}
             %h3.card-title.text-center 
                 = current_user.username
-            %p.card-text.text-center Está na biblioteca
             %ul.list-group.list-group-flush
                 %a{class: "add-product list-group-item", id: "add_product", href: "/product/new"} Adicionar produtos
                 %a{class: "add-product list-group-item", id: "payment_method", href: "/user/payment_method"} Escolher métodos de pagamento
-                %a{class: "list-group-item", href: "#"} Localização
     %h5.mb-4 Métodos de Pagamento
     .row.mx-2.justify-content-center
         - if @user.card

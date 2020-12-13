@@ -10,7 +10,7 @@
       %img.img-prod.mx-auto{:src => url_for(@product.photo)}
       .d-flex.flex-row.box-price.col-3.justify-content-center.align-self-end.mr-3
         .row.justify-content-center.p-2
-          %b R$ #{@product.price}
+          %b R$ #{"%0.2f" % [@product.price]}
 
   - if logged_in? and current_user == @product.user
     .row.mt-5
@@ -19,8 +19,6 @@
         .row.justify-content-around.my-3
           .col-6.text-center
             =button_to  "EDITAR", edit_product_path(@product), {:id => "Editar", :class=> "btn btn-info", :type => "button", :method => :get}
-            -# %a{:class => ''}
-            -#   EDITAR
           .col-6.text-center
             =link_to 'REMOVER', @product, {:class => 'btn btn-danger', method: :delete}
 
@@ -65,15 +63,13 @@
     .product-desc.d-flex.justify-content-left
       %b Fale com o vendedor!  
   .row.align-items-end.justify-content-center.mt-3.mx-2
-    .col-2
-    .col.col-btn
-    - if @product.user.phone != ''
-      %button.btn.btn-secondary.btn-call.w-100.p-2{:type => "button", :onclick => "location.href='https://api.whatsapp.com/send?phone=#{@product.user.phone}&text=Gostaria%20de%20comprar%20seu%20produto';"} 
-        %i.fa.fa-whatsapp
-        Enviar Mensagem
-    - else
-      %p.text-center
-        O vendedor não cadastrou um número de celular
-    .col-2
+    .col-12
+      - if @product.user.phone != ''
+        %button.btn.btn-secondary.btn-call.w-100.p-2{:type => "button", :onclick => "location.href='https://api.whatsapp.com/send?phone=#{@product.user.phone}&text=Gostaria%20de%20comprar%20seu%20produto';"} 
+          %i.fa.fa-whatsapp
+          Enviar Mensagem
+      - else
+        %p.text-center
+          O vendedor não cadastrou um número de celular
   - if @product.user.present?
     = render partial: 'footer'

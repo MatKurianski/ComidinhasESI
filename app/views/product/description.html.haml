@@ -10,7 +10,7 @@
       %img.img-prod.mx-auto{:src => url_for(@product.photo)}
       .d-flex.flex-row.box-price.col-3.justify-content-center.align-self-end.mr-3
         .row.justify-content-center.p-2
-          %b R$ #{@product.price}
+          %b R$ #{"%0.2f" % [@product.price]}
 
   - if logged_in? and current_user == @product.user
     .row.mt-5

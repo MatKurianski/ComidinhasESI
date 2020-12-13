@@ -50,7 +50,15 @@ class ProductController < ApplicationController
 
   # function
   def update
-    @product = Product.find_by(id:params[:id]) 
+    @product = Product.find_by(id:params[:id])
+
+    if params[:product][:photo].present?
+      @product.photo.attach(params[:product][:photo])
+    end
+
+    if params[:product][:categories].present?
+      @product.categories = Category.find(params[:product][:categories])
+    end
 
     if @product.update(name: params[:product][:name], 
       price: params[:product][:price], 

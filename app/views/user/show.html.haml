@@ -27,7 +27,7 @@
             %div.row.text-center
                 %div.col Produtos 
                 %div.col Estrelas
-
+    .row.mx-2.justify-content-center
     %h5.mb-4 Métodos de Pagamento
     .row.mx-2.justify-content-center
         - if @user.card
@@ -46,6 +46,15 @@
             .col-3.text-center
                 %i.fas.fa-utensils
                 %p VR
+    %h5.my-4 Fale com o vendedor
+    .row.mx-2.justify-content-center
+        - if @user.phone != ''
+            %button.btn.btn-secondary.btn-call.w-100.p-2{:type => "button", :onclick => "location.href='https://api.whatsapp.com/send?phone=#{@user.phone}&text=Gostaria%20de%20comprar%20seu%20produto';"} 
+                %i.fa.fa-whatsapp
+                Enviar Mensagem
+        - else
+            %p.text-center
+                O vendedor não cadastrou um número de celular
     %h5.mt-4 Produtos 
     = render partial: 'product-card'
     
@@ -53,4 +62,3 @@
 %br
 
 = render partial: 'navbar/navbar' 
-    

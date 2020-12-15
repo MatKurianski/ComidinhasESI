@@ -232,5 +232,3 @@ document.getElementById("commentary").addEventListener('focus', () => {
 document.getElementById("commentary").addEventListener('blur', () => {
     document.getElementById("commentary-border").classList.remove("commentary-border");
 });
-
-//document.getElementsByTagName('body')[0].classList.add('new-rating-body');//pode ser interessante apagar

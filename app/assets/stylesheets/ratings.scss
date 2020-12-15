@@ -6,47 +6,14 @@
   position: absolute;
   transform-origin: center;
   transform: translateX(-100%) scale(0);
-  /*animation: grow 1s forwards;*/
 }
-/*
-@keyframes grow {
-  0% {
-    transform: translateX(-100%) scale(0);
-  }
-
-  75% {
-    transform: translateX(-100%) scale(1.2);
-  }
-
-  100% {
-    transform: translateX(-100%) scale(1);
-  }
-}*/
 
 .heart-pulse {
   position: absolute;
   transform-origin: center;
   transform: translateX(-100%);
   fill: none;
-  /*animation: pulse 0.8s forwards 0.75s;*/
 }
-/*
-@keyframes pulse {
-  0% {
-    transform: translateX(-100%) scale(0);
-    fill: none;
-  }
-
-  1% {
-    transform: translateX(-100%) scale(1.2);
-    fill: rgba(250, 91, 91, 0.5);
-  }
-
-  100% {
-    transform: translateX(-100%) scale(1.5);
-    fill: rgba(250, 91, 91, 0);
-  }
-}*/
 
 .new-rating-wrapper input[type='radio'] {
   display: none;
@@ -56,10 +23,6 @@
   margin-left: 2px;
   margin-right: 2px;
   transition: 0.2s;
-
-  /*&:hover {
-    transform: scale(1.2);
-  }*/
 }
 
 @media only screen and (min-width: 720px) {

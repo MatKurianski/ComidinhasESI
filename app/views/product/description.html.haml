@@ -37,7 +37,7 @@
     .d-flex.justify-content-center
       .container.box-rating.col-lg-8.justify-content-center.border.border-secondary
         .row.align-items-start.justify-content-center
-          %h2.mt-2 3
+          %h2.mt-2 #{"%0.1f" % [@avg_ratings]}
         .row.align-items-center.justify-content-center.mt-1
           %span.fa.fa-heart.checked.fa-lg.p-1
           %span.fa.fa-heart.checked.fa-lg.p-1
@@ -48,7 +48,7 @@
           .col.col-btn
             =button_to  "Avaliar", new_product_rating_path(product_id:@product.id), {:id => "Avaliar", :class=> "button btn-rating btn btn-outline-secondary w-100 p-2", :type => "button", :method => :get}
           .col.col-btn
-            =button_to  "Avaliações", product_ratings_path(product_id:@product.id), {:id => "Avaliações", :class=> "button btn-rating btn btn-outline-secondary w-100 p-2", :type => "button", :method => :get}
+            =button_to  "Avaliações (#{@amount_ratings})", product_ratings_path(product_id:@product.id), {:id => "Avaliações", :class=> "button btn-rating btn btn-outline-secondary w-100 p-2", :type => "button", :method => :get}
           
   .row.flex-nowrap.row-flex.mt-5
     .product-desc.d-flex.justify-content-left

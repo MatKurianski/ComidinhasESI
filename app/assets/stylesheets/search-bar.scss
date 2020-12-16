@@ -46,7 +46,7 @@ $transparent-grey: rgba(230, 230, 230, 0.2);
     border-top-left-radius: 14px;
     background-color: transparent;
     left: 0;
-    top: 50%;
+    top: calc(50% + 2px);
     width: 0;
     height: 0;
     animation: draw-top 0.25s linear forwards;
@@ -73,7 +73,7 @@ $transparent-grey: rgba(230, 230, 230, 0.2);
   }
 
   100% {
-    width: 85%;
+    width: calc(85% + 2px);
     height: 50%;
     border-left-color: $orange;
     border-bottom-color: $orange;
@@ -86,7 +86,7 @@ $transparent-grey: rgba(230, 230, 230, 0.2);
   0% {
     width: 0;
     height: 0;
-    top: 50%;
+    top: calc(50% + 2px);
     border-left-color: $orange;
     border-bottom-color: transparent;
     border-top-color: transparent;
@@ -95,7 +95,7 @@ $transparent-grey: rgba(230, 230, 230, 0.2);
 
   25% {
     width: 0;
-    height: 50%;
+    height: calc(50% + 2px);;
     top: 0;
     border-left-color: $orange;
     border-bottom-color: transparent;
@@ -104,8 +104,8 @@ $transparent-grey: rgba(230, 230, 230, 0.2);
   }
 
   100% {
-    width: 85%;
-    height: 50%;
+    width: calc(85% + 2px);
+    height: calc(50% + 2px);;
     top: 0;
     border-left-color: $orange;
     border-bottom-color: transparent;
@@ -121,6 +121,7 @@ $transparent-grey: rgba(230, 230, 230, 0.2);
   outline-style: none !important;
   padding-left: 5px;
   padding-right: 10px;
+  z-index: 1000;
 }
 
 .search-bar:focus+.search-btn {

@@ -134,3 +134,24 @@ margin-bottom: -20px;
   text-align: center !important;
 }
 
+.empty-hearts-avg svg{
+  position: relative;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.filled-hearts-avg {
+  position: absolute;
+}
+
+.heart-bar{
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+
+  & svg{
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}

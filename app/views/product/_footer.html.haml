@@ -1,9 +1,8 @@
 .row.row-hr.align-items-end.justify-content-center.no-gutters.mt-5
-.row.justify-content-center.my-5.py-2 
-  -if @product.user.avatar and @product.user.avatar.attached?
-    .col-md-1.col-3
+.row.justify-content-center.my-5.py-2
+  .footer-border 
+    -if @product.user.avatar and @product.user.avatar.attached?
       %img.seller-pic{:src =>url_for(@product.user.avatar)}
-  .col-md-2.col-3.text-align-center
-    Vendido por
-    %a{class: "login-link", href: "/user/#{@product.user.id}", id: 'vendedor'}
+    %p{class: "footer-text"} Vendido por
+    %a{class: "footer-link", href: "/user/#{@product.user.id}", id: 'vendedor'}
       = @product.user.username

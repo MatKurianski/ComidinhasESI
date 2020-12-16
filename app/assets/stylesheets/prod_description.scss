@@ -94,11 +94,13 @@ span.fa.fa-heart.checked {
 }
 
 .seller-pic{
+  position: absolute;
   display: block;
   width:55px;
   height:55px;
   border-radius: 100%;
   padding:0;
+  transform: translateX(-100%);
 }
 .box-pic{
 border-radius:50%;
@@ -154,4 +156,30 @@ margin-bottom: -20px;
     margin-left: 2px;
     margin-right: 2px;
   }
+}
+
+.footer-border{
+  border: #E5E5E5 1px solid;
+  padding-top: 2px;
+  height: 61px;
+  padding-right: 10px;
+  padding-left: 57px;
+  border-radius: 50px;
+}
+
+.footer-text{
+  font-size: 12px !important;
+  margin: 0;
+  padding-top: 9px;
+  padding-left: 5px;
+  padding-bottom: 0;
+  padding-right: 0;
+  white-space: nowrap;
+}
+
+.footer-link{
+  padding-left: 5px;
+  color: black !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
 }

@@ -13,6 +13,7 @@
   isolation: 2;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
   position: relative;
+  overflow: hidden;
 }
 
 .product-text {
@@ -62,4 +63,28 @@
 .local-text {
   font-size: 10px;
   color: green;
+}
+
+.product-card > span {
+  position: absolute;
+  background-color: #363636;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
+  animation: ripples 0.4s linear forwards;
+}
+
+@keyframes ripples {
+  0% {
+    opacity: 0.3;
+    width: 0px;
+    height: 0px;
+  }
+
+  100% {
+    opacity: 0;
+    width: 1000px;
+    height: 1000px;
+  }
 }

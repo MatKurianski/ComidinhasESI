@@ -25,7 +25,7 @@ $transparent-grey: rgba(230, 230, 230, 0.2);
       margin-left: 4px;
     }
 
-    .vote-count {
+    .vote-link {
       color: #928E8E;
       font-size: 14px;
     }
@@ -101,4 +101,14 @@ $transparent-grey: rgba(230, 230, 230, 0.2);
 
 .cross-animation{
   stroke-dashoffset: 0px !important;
+}
+
+.vote-heart {
+  position: absolute;
+  transform: translate(-22px, 3px) scale(0);
+  transition: 0.2s;
+}
+
+.active-vote .vote-heart{
+  transform: translate(-22px, 3px) scale(1.05);
 }

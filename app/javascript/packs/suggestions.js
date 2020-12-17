@@ -26,24 +26,38 @@ document.getElementById("suggestion").addEventListener("input", function() {
     suggestions_class.check_input();
 });
 
-document.querySelectorAll(".vote").forEach(e => {
-    e.addEventListener("ajax:success", () => {
-        if(e.classList.contains("active-vote")) {
-            e.classList.remove("active-vote");
-            let votes = parseInt(e.parentNode.querySelector(".vote-count").innerHTML);
-            e.parentNode.querySelector(".vote-count").innerHTML = (votes-1).toString();
-            e.dataset.method = "post";
-        }
-        else {
-            e.classList.add("active-vote");
-            let votes = parseInt(e.parentNode.querySelector(".vote-count").innerHTML);
-            e.parentNode.querySelector(".vote-count").innerHTML = (votes+1).toString();
-            e.dataset.method = "delete";
-        }
-        let link = e.href;
-        let alternateLink = e.dataset.alternateLink;
+function isJSON(str) {
+    try {
+        JSON.parse(str);
+    } catch(e) {
+        return false;
+    }
 
-        e.href = alternateLink;
-        e.dataset.alternateLink = link;
+    return true;
+}
+
+document.querySelectorAll(".vote").forEach(e => {
+    e.addEventListener("ajax:success", event => {
+        const [data, status, xhr] = event.detail;
+
+        if(isJSON(xhr.responseText)){
+            if(e.classList.contains("active-vote")) {
+                e.classList.remove("active-vote");
+                let votes = parseInt(e.parentNode.querySelector(".vote-count").innerHTML);
+                e.parentNode.querySelector(".vote-count").innerHTML = (votes-1).toString();
+                e.dataset.method = "post";
+            }
+            else {
+                e.classList.add("active-vote");
+                let votes = parseInt(e.parentNode.querySelector(".vote-count").innerHTML);
+                e.parentNode.querySelector(".vote-count").innerHTML = (votes+1).toString();
+                e.dataset.method = "delete";
+            }
+            let link = e.href;
+            let alternateLink = e.dataset.alternateLink;
+
+            e.href = alternateLink;
+            e.dataset.alternateLink = link;
+        }
     });
 });

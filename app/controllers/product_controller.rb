@@ -8,7 +8,9 @@ class ProductController < ApplicationController
   def show
     if @product = Product.find_by(id:params[:id])  
       @user = @product.user   
-      @categories = @product.categories  
+      @categories = @product.categories
+      @amount_ratings = @product.ratings.count
+      @avg_ratings = avg_ratings 
       render 'description'
     else
       redirect_to root_path
@@ -77,8 +79,22 @@ class ProductController < ApplicationController
   end
 
   private
-  def product_params
-    params.require(:product).permit(:name, :price, :description, :photo, :user, categories: [])
-  end 
+    def product_params
+      params.require(:product).permit(:name, :price, :description, :photo, :user, categories: [])
+    end
+    
+    def avg_ratings
+      avg = 0.0
+
+      if @product.ratings.any?
+        @product.ratings.each do |rating|
+          avg = avg + rating.rate_value
+        end
+
+        avg = avg/@product.ratings.count
+      end
+
+      return avg
+    end
 
 end

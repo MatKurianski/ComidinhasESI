@@ -22,10 +22,10 @@
                     - if @products.count == 0 or @ratings == 0
                         %p -
                     - else
-                        = @ratings
+                        %p #{"%0.1f" % [@ratings]}
             %div.row.text-center
                 %div.col Produtos 
-                %div.col Estrelas
+                %div.col Corações
             %br
             %br
 
@@ -63,3 +63,5 @@
 %br
 
 = render partial: 'navbar/navbar' 
+
+= javascript_pack_tag 'ripple'

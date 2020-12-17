@@ -48,7 +48,7 @@ Quando('pelo menos um produto possui pelo menos uma avaliação') do
 end
   
 Então('devo ver a média de todas as avaliações') do
-    expect(page).to have_content((10.0/3.0).to_s)
+    expect(page).to have_content((3.3).to_s)
 end
   
 Quando('todos os produtos não possuem avaliações') do

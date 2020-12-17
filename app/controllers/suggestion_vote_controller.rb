@@ -7,12 +7,12 @@ class SuggestionVoteController < ApplicationController
     suggestion_vote.user = current_user
     suggestion_vote.suggestion = @suggestion
     @suggestion.suggestion_votes << suggestion_vote unless @suggestion.suggestion_votes.exists?({user_id: current_user.id})
-    redirect_to suggestions_path
+    render :json => { :message => "created" }
   end
 
   def destroy
     @suggestion.suggestion_votes.find_by(user_id: current_user.id).destroy
-    redirect_to suggestions_path
+    render :json => { :message => "destroyed" }
   end
 
   private
